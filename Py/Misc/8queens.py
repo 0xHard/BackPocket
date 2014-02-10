@@ -1,3 +1,5 @@
+import random
+
 def conflect(state,nextX):
     nextY= len(state)
     for i in range(nextY):
@@ -15,3 +17,11 @@ def queens(num=8,state=()):
                 for result in queens(num, state + (pos,)):
                     yield (pos,) + result
                     
+                    
+def prettyprint(solution):
+    def line(pos, length=len(solution)):
+        return '. ' * pos +'X ' + '.' * (length-pos-1)
+    for pos in solution:
+        print line(pos)
+        
+prettyprint(random.choice(list(queens(8))))
